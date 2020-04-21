@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="relative flex overflow-hidden py-16 lg:py-80 min-h-screen sm:min-h-0 bg-no-repeat bg-right-top hero"
+      class="relative flex overflow-hidden py-16 lg:py-80 pt-24 lg:pt-80 min-h-screen sm:min-h-0 bg-no-repeat bg-right-top hero"
     >
       <div
         class="absolute right-0 max-w-2xl w-full overflow-visible hidden lg:block"
