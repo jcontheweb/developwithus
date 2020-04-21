@@ -134,7 +134,6 @@ const chevron = `<svg class="fill-current text-brand-purple w-8 inline" xmlns="h
 export default {
   components: {
     Button: () => import("~/components/UI/Button.vue"),
-    VideoGallery: () => import("~/components/VideoGallery.vue"),
     ProfileCard: () => import("~/components/Profile/Card.vue")
   },
   data() {
