@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="261px" height="453px" viewBox="0 0 261 453" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Path 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="39.8570032%" y1="0%" x2="47.9079902%" y2="68.849033%" id="linearGradient-1">
+            <stop stop-color="#DEDAFF" offset="0%"></stop>
+            <stop stop-color="#F4F3FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mentory---Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.398087">
+        <g id="Home" transform="translate(0.000000, -1466.000000)" fill="url(#linearGradient-1)">
+            <g id="Featured-Mentors" transform="translate(0.000000, 1076.000000)">
+                <path d="M1.39213111,427.551506 C121.801702,377.667255 199.359586,377.667255 234.065782,427.551506 C286.125076,502.377882 261.774761,615.015263 168.755031,660.448829 C106.741878,690.737873 50.6568674,751.445659 0.5,842.572186 L1.39213111,427.551506 Z" id="Path-4"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,95 @@
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+/* purgecss end ignore */
+@import "tailwindcss/utilities";
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.VueCarousel-navigation-button {
+  color: #fff !important;
+}
+
+html {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1 {
+  font-size: 38px;
+  line-height: 45px;
+
+  @media (min-width: 640px) {
+    font-size: 54px;
+    line-height: 68px;
+  }
+}
+
+h1,
+h2 {
+  font-family: "Lora", serif;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 43px;
+
+  @media (min-width: 640px) {
+    font-size: 40px;
+    line-height: 61px;
+  }
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 27px;
+}
+
+p.subtitle {
+  font-size: 16px;
+  line-height: 24px;
+
+  @media (min-width: 640px) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+p,
+small,
+li {
+  @apply text-black;
+}
