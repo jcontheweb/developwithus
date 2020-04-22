@@ -23,44 +23,44 @@ export default {
 </script>
 
 <style lang="scss">
-// .button {
-//   @apply uppercase rounded-full leading-none transition duration-300 font-bold;
+.button {
+  @apply uppercase rounded-full leading-none transition duration-300 font-bold;
 
-//   &:focus {
-//     @apply outline-none
-//   }
+  &:focus {
+    @apply outline-none
+  }
 
-//   // Modifier
-//   &--primary {
-//     @apply bg-brand-purple shadow-purple text-white;
+  // Modifier
+  &--primary {
+    @apply bg-brand-purple shadow-purple text-white;
 
-//     &:hover {
-//       @apply shadow-purpleLg;
-//     }
-//   }
+    &:hover {
+      @apply shadow-purpleLg;
+    }
+  }
 
-//   &--secondary {
-//     @apply bg-white border border-indigo-100 text-brand-purple;
+  &--secondary {
+    @apply bg-white border border-indigo-100 text-brand-purple;
 
-//     &:hover {
-//       @apply shadow-button
-//     }
-//   }
+    &:hover {
+      @apply shadow-button
+    }
+  }
 
-//   // Size
-//   &\:large {
-//     @apply py-5 px-8;
-//     font-size: 15px;
-//   }
+  // Size
+  &\:large {
+    @apply py-5 px-8;
+    font-size: 15px;
+  }
 
-//   &\:base {
-//     @apply py-4 px-8;
-//     font-size: 13px;
-//   }
+  &\:base {
+    @apply py-4 px-8;
+    font-size: 13px;
+  }
 
-//   &\:small {
-//     @apply py-3 px-5;
-//     font-size: 13px;
-//   }
-// }
+  &\:small {
+    @apply py-3 px-5;
+    font-size: 13px;
+  }
+}
 </style>
