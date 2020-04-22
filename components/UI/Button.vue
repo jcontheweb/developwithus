@@ -1,7 +1,5 @@
 <template>
-  <client-only>
-    <button @click="$emit('click')" :class="`button button--${modifier} button:${size}`">{{ text }}</button>
-  </client-only>
+  <button @click="$emit('click')" :class="`button button--${modifier} button:${size}`">{{ text }}</button>
 </template>
 
 <script>
@@ -25,13 +23,12 @@ export default {
 </script>
 
 <style lang="scss">
-
 /* purgecss start ignore */
 .button {
   @apply uppercase rounded-full leading-none transition duration-300 font-bold;
 
   &:focus {
-    @apply outline-none
+    @apply outline-none;
   }
 
   // Modifier
@@ -47,7 +44,7 @@ export default {
     @apply bg-white border border-indigo-100 text-brand-purple;
 
     &:hover {
-      @apply shadow-button
+      @apply shadow-button;
     }
   }
 
