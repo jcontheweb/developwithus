@@ -9,6 +9,7 @@
       <MobileSidebar @close="display_sidebar = false" v-if="display_sidebar" />
     </transition>
     <nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -17,7 +18,8 @@ export default {
   components: {
     DesktopHeader: () => import("~/components/Layout/DesktopHeader.vue"),
     MobileHeader: () => import("~/components/Layout/MobileHeader.vue"),
-    MobileSidebar: () => import("~/components/Layout/MobileSidebar.vue")
+    MobileSidebar: () => import("~/components/Layout/MobileSidebar.vue"),
+    Footer: () => import("~/components/Layout/Footer.vue")
   },
   data: () => ({
     display_sidebar: false
