@@ -25,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 /* purgecss start ignore */
 .button {
   @apply uppercase rounded-full leading-none transition duration-300 font-bold;
