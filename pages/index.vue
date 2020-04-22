@@ -19,30 +19,29 @@
         <div class="max-w-2xl mx-auto lg:mx-0">
           <h1>Developers to help you bring your product to life.</h1>
           <p class="subtitle mt-5">Web advice for tomorrow’s leaders.</p>
-          <div
-            class="relative bg-white xs:p-2 flex justify-between rounded-full shadow-input mt-10"
+
+          <InputWithButton
+            placeholder="What type of project do you have?"
+            type="text"
+            text="find a developer"
           >
-            <p class="pl-6 flex flex-1">
-              <svg class="w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path
-                  d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
-                />
-              </svg>
-              <input
-                class="focus:outline-none py-5 px-3 pr-10 xs:pr-3 w-full placeholder-black rounded-full leading-tight"
-                placeholder="What type of project do you have?"
-                type="text"
-                name
-                id
+            <svg class="w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path
+                d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"
               />
+            </svg>
+          </InputWithButton>
+          <div class="mt-6 hidden lg:block">
+            <p class="flex items-center">
+              Popular:
+              <button
+                class="leading-none py-2 px-5 rounded-md border border-black30 font-semibold text-black ml-2 text-sm focus:outline-none"
+              >Wordpress</button>
+              <button
+                class="leading-none py-2 px-5 rounded-md border border-black30 font-semibold text-black ml-2 text-sm focus:outline-none"
+              >New website</button>
             </p>
-            <button
-              class="hidden xs:block uppercase text-sm font-bold rounded-full py-5 px-8 text-white bg-brand-purple shadow-purple hover:shadow-purpleLg transition duration-300 focus:outline-none"
-            >find a developer</button>
           </div>
-          <button
-            class="xs:hidden mt-4 w-full uppercase text-sm font-bold rounded-full py-5 px-8 text-white bg-brand-purple shadow-purple hover:shadow-purpleLg transition duration-300 focus:outline-none"
-          >find a developer</button>
         </div>
       </div>
     </section>
@@ -51,16 +50,16 @@
         <div class="text-center">
           <p class="text-lg">Our developers have experience in companies like</p>
           <div class="max-w-4xl mx-auto md:flex justify-between w-full">
-            <img class="mt-10 mx-auto md:mx-0" src="/apple.svg" alt="">
-            <img class="mt-10 mx-auto md:mx-0" src="/hubspot.svg" alt="">
-            <img class="mt-10 mx-auto md:mx-0" src="/airbus.svg" alt="">
-            <img class="mt-10 mx-auto md:mx-0" src="/dekra.svg" alt="">
+            <img class="mt-10 mx-auto md:mx-0" src="/apple.svg" alt />
+            <img class="mt-10 mx-auto md:mx-0" src="/hubspot.svg" alt />
+            <img class="mt-10 mx-auto md:mx-0" src="/airbus.svg" alt />
+            <img class="mt-10 mx-auto md:mx-0" src="/dekra.svg" alt />
           </div>
         </div>
       </div>
     </section>
-    <section class="relative my-16 lg:my-40 pt-4">
-      <img src="/dots.svg" style="top:8px;" alt class="absolute right-0" />
+    <section class="relative my-24 lg:my-40 pt-4">
+      <img src="/dots.svg" style="top:8px;" alt class="hidden sm:block absolute right-0" />
       <img src="/blob.svg" alt class="blob absolute left-0" />
       <div class="container z-5 relative">
         <div class="text-center">
@@ -86,13 +85,128 @@
         </div>
       </div>
     </section>
-    <section class="relative my-16 lg:my-40">
+    <section class="relative my-24 lg:my-40">
       <div class="container">
         <div class="text-center">
           <h2 class="mb-2">What can I achieve?</h2>
           <p
             class="subtitle max-w-xl mx-auto"
           >We all have things that we'd like to improve. Here are some to help you get started.</p>
+        </div>
+        <div class="sm:hidden -mx-2 mt-4">
+          <client-only>
+            <carousel
+              :per-page-custom="[[300, 1]]"
+              :navigation-enabled="true"
+              :navigationNextLabel="chevron"
+              pagination-color="#ecebf5"
+              pagination-active-color="#4663f6"
+              :pagination-padding="6"
+              :pagination-size="12"
+            >
+              <slide v-for="n in 6" class="overflow-visible py-4 px-2">
+                <SkillCard />
+              </slide>
+            </carousel>
+          </client-only>
+        </div>
+        <div class="hidden sm:block mt-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <SkillCard v-for="n in 6" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-24 lg:my-40 relative">
+      <img class="absolute left-0" style="top: -20px" src="/dots.svg" alt />
+      <div class="container relative z-10">
+        <div class="lg:flex">
+          <div class="mx-auto lg:mx-0" style="max-width: 620px;width: 100%;height: 320px;">
+            <iframe
+              id="player"
+              type="text/html"
+              width="100%"
+              height="100%"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
+              frameborder="0"
+            ></iframe>
+          </div>
+          <div
+            class="max-w-lg mx-auto mt-8 text-center lg:text-left lg:max-w-none lg:mx-0 flex-1 lg:ml-12 xl:ml-20 lg:mt-0"
+          >
+            <h2>New times require new ways of working</h2>
+            <p
+              class="subtitle mt-4"
+            >Finding a developer is rare, expensive and difficult. We’re here to make opportunities available to our generation through development and conversation. Each one, helps one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-24 lg:my-40 relative">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="mb-2">Don't take our word for it. Take theirs.</h2>
+          <p class="subtitle">Unbiased comments from our community members.</p>
+        </div>
+        <div class="mt-6 sm:mt-12">
+          <client-only>
+            <carousel
+              :per-page-custom="[[300, 1], [768, 2], [1024, 3]]"
+              :navigation-enabled="true"
+              :navigationNextLabel="chevron"
+              pagination-color="#ecebf5"
+              pagination-active-color="#4663f6"
+              :pagination-padding="6"
+              :pagination-size="12"
+            >
+              <slide v-for="n in 8" class="py-6 px-4">
+                <div
+                  class="bg-white p-4 border border-gray-100 shadow-skillcard rounded-md relative"
+                >
+                  <div
+                    class="top-right-overflow flex items-center justify-center absolute h-8 w-8 bg-brand-purple rounded-full text-white"
+                  >
+                    <img src="/quote.svg" alt />
+                  </div>
+                  <h4>WordPress development</h4>
+                  <p
+                    class="mt-2"
+                  >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ab voluptas doloremque exercitationem velit eveniet alias voluptatibus saepe perspiciatis sunt labore, consequatur vitae mollitia ipsa minima laudantium vero quas adipisci!</p>
+                  <div class="flex mt-6">
+                    <div>
+                      <span
+                        class="rounded-full block h-20 w-20 bg-cover bg-no-repeat bg-center"
+                        :style="`background-image:url(/avatar${n}.jpg);`"
+                      ></span>
+                    </div>
+                    <div class="ml-4">
+                      <p class="text-lg font-semibold">Ryan H.</p>
+                      <p class="leading-6">Marketing Specialist</p>
+                      <p class="leading-6">Telamerica</p>
+                    </div>
+                  </div>
+                </div>
+              </slide>
+            </carousel>
+          </client-only>
+        </div>
+      </div>
+    </section>
+    <section class="my-24 lg:my-40">
+      <div class="container">
+        <div class="flex flex-wrap justify-between items-center">
+          <div
+            class="max-w-md mx-auto text-center w-full mt-12 lg:max-w-none lg:mx-0 lg:text-left lg:mt-0 lg:flex-1 lg:mr-12"
+          >
+            <h2>Make money building web applications</h2>
+            <p
+              class="mt-6 subtitle"
+            >Add an extra source of income by helping others to get better at what you already know. From where you are. At your pace.</p>
+            <Button class="mt-8" modifier="primary" size="large" text="become a developer" />
+          </div>
+          <div class="order-first w-full lg:flex-1 lg:ml-12 lg:order-last">
+            <img class="w-80 mx-auto lg:mx-0 lg:w-full" src="/cta.53f4bf63.png" alt />
+          </div>
         </div>
       </div>
     </section>
@@ -103,25 +217,7 @@
           <p
             class="subtitle text-white mt-6"
           >Informative content to help you grow right in your inbox. Best of the best. Once per month. No spam.</p>
-          <div
-            class="relative bg-white xs:p-2 flex justify-between rounded-full shadow-input mt-10"
-          >
-            <p class="pl-6 flex flex-1">
-              <input
-                class="focus:outline-none py-5 px-3 pr-10 xs:pr-3 w-full placeholder-black rounded-full leading-tight"
-                placeholder="Your email"
-                type="text"
-                name
-                id
-              />
-            </p>
-            <button
-              class="hidden xs:block uppercase text-sm font-bold rounded-full py-5 px-12 text-white bg-brand-purple shadow-purple hover:shadow-purpleLg transition duration-300 focus:outline-none"
-            >sign up</button>
-          </div>
-          <button
-            class="xs:hidden mt-4 w-full uppercase text-sm font-bold rounded-full py-5 px-12 text-white bg-brand-purple shadow-purple hover:shadow-purpleLg transition duration-300 focus:outline-none"
-          >sign up</button>
+          <InputWithButton placeholder="Your email" type="email" text="sign up" />
         </div>
       </div>
     </section>
@@ -134,7 +230,9 @@ const chevron = `<svg class="fill-current text-brand-purple w-8 inline" xmlns="h
 export default {
   components: {
     Button: () => import("~/components/UI/Button.vue"),
-    ProfileCard: () => import("~/components/Profile/Card.vue")
+    ProfileCard: () => import("~/components/Profile/Card.vue"),
+    SkillCard: () => import("~/components/Skill/Card.vue"),
+    InputWithButton: () => import("~/components/UI/InputWithButton.vue")
   },
   data() {
     return { chevron };

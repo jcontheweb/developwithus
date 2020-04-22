@@ -15,9 +15,7 @@
           class="link ml-12 transition duration-300 text-white hover:text-brand-purple"
           to="/"
         >Login</nuxt-link>
-        <button
-          class="ml-8 rounded-full focus:outline-none border border-indigo-100 bg-white leading-none py-3 px-8 uppercase text-brand-purple shadow-button hover:shadow-input text-sm font-bold transition duration-300"
-        >sign up</button>
+        <Button class="ml-8" modifier="primary" size="small" text="sign up" />
       </div>
     </div>
   </header>
@@ -25,6 +23,9 @@
 
 <script>
 export default {
+  components: {
+    Button: () => import('~/components/UI/Button.vue')
+  },
   mounted() {
     const header = this.$refs.header;
     window.addEventListener("scroll", event => {

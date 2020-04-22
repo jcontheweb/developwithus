@@ -24,35 +24,43 @@ export default {
 
 <style scoped lang="scss">
 .button {
-  @apply block border-2 border-brand-blue rounded py-3 text-white text-sm leading-none transition duration-300;
+  @apply uppercase rounded-full leading-none transition duration-300 font-bold;
+
+  &:focus {
+    @apply outline-none
+  }
 
   // Modifier
   &--primary {
-    @apply bg-brand-blue;
+    @apply bg-brand-purple shadow-purple text-white;
+
+    &:hover {
+      @apply shadow-purpleLg;
+    }
   }
 
   &--secondary {
-      @apply bg-transparent;
+    @apply bg-white border border-indigo-100 text-brand-purple;
+
+    &:hover {
+      @apply shadow-button
+    }
   }
 
   // Size
   &\:large {
-    @apply px-8;
+    @apply py-5 px-8;
+    font-size: 15px;
   }
 
   &\:base {
-    @apply px-6;
+    @apply py-4 px-8;
+    font-size: 13px;
   }
-}
 
-// Hover
-.button:hover {
-    transform: translateY(-1px);
-}
-
-.button--primary:hover {}
-
-.button--secondary:hover {
-    @apply bg-brand-blue
+  &\:small {
+    @apply py-3 px-5;
+    font-size: 13px;
+  }
 }
 </style>

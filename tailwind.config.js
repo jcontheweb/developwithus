@@ -18,6 +18,7 @@ module.exports = {
       white: '#fff',
 
       white50: 'rgba(255, 255, 255, 0.35)',
+      black30: 'rgba(0, 0, 0, 0.3)',
       black75: 'rgba(0, 0, 0, 0.75)',
 
       brand: {
@@ -208,11 +209,12 @@ module.exports = {
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
       none: 'none',
+      skillcard: '0 2px 4px 0 rgba(0,0,0,.08)',
       purple: '0 4px 15px 0 rgba(70,99,246,.45)',
       purpleLg: '0px 4px 15px 3px rgba(70,99,246,.45)',
       input: '0 12px 34px 0 rgba(75,68,128,.13)',
       card: '4px 6px 10px rgba(0,0,0,.1)',
-      button: '4px 4px 4px rgba(0,0,0,.02)',
+      button: '4px 4px 4px 6px rgba(0,0,0,.02)',
     },
     container: {},
     cursor: {
