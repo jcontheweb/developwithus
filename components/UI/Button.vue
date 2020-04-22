@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" :class="`button button--${modifier} button:${size}`">{{ text }}</button>
+  <button @click="$emit('click')" :class="`button button--${modifier} button--${size}`">{{ text }}</button>
 </template>
 
 <script>
@@ -23,7 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-/* purgecss start ignore */
 .button {
   @apply uppercase rounded-full leading-none transition duration-300 font-bold;
 
@@ -49,20 +48,19 @@ export default {
   }
 
   // Size
-  &\:large {
+  &--large {
     @apply py-5 px-8;
     font-size: 15px;
   }
 
-  &\:base {
+  &--base {
     @apply py-4 px-8;
     font-size: 13px;
   }
 
-  &\:small {
+  &--small {
     @apply py-3 px-5;
     font-size: 13px;
   }
 }
-/* purgecss end ignore */
 </style>

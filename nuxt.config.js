@@ -59,8 +59,5 @@ export default {
     */
     extend(config, ctx) {
     }
-  },
-  purgeCSS: {
-    whitelist: ['button']
-  },
+  }
 }
