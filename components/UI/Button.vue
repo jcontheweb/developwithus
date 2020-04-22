@@ -1,5 +1,7 @@
 <template>
-  <button @click="$emit('click')" :class="`button button--${modifier} button:${size}`">{{ text }}</button>
+  <client-only>
+    <button @click="$emit('click')" :class="`button button--${modifier} button:${size}`">{{ text }}</button>
+  </client-only>
 </template>
 
 <script>
@@ -23,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
+/* purgecss start ignore */
 .button {
   @apply uppercase rounded-full leading-none transition duration-300 font-bold;
 
@@ -63,4 +66,5 @@ export default {
     font-size: 13px;
   }
 }
+/* purgecss end ignore */
 </style>
