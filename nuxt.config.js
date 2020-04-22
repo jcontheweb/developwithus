@@ -59,5 +59,8 @@ export default {
     */
     extend(config, ctx) {
     }
-  }
+  },
+  purgeCSS: {
+    enabled: false
+ },
 }
