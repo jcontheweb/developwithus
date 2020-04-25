@@ -55,12 +55,22 @@ export default {
 
   &--base {
     @apply py-4 px-8;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   &--small {
     @apply py-3 px-5;
-    font-size: 13px;
+    font-size: 14px;
+  }
+  
+  &--small-wide {
+    @apply py-3 px-8;
+    font-size: 14px;
+  }
+
+  &--small-full {
+    @apply py-3 w-full;
+    font-size: 14px;
   }
 }
 </style>

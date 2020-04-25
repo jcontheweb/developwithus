@@ -1,13 +1,13 @@
 <template>
-  <div class="p-6 shadow-card rounded-lg bg-white">
+  <div class="p-6 bg-white rounded-lg shadow-card">
     <div class="xs:flex">
-      <div class="xs:mr-6 flex flex-col items-center xs:text-center">
+      <div class="flex flex-col items-center xs:mr-6 xs:text-center">
         <span
-          class="avatar h-18 w-18 inline-block bg-cover bg-no-repeat rounded-full"
+          class="inline-block bg-no-repeat bg-cover rounded-full avatar h-18 w-18"
           :style="`background-image: url(${demo.avatar})`"
         ></span>
         <p
-          class="font-bold text-brand-purple mt-1 text-sm uppercase"
+          class="mt-1 text-sm font-bold uppercase text-brand-purple"
         >{{ demo.price == 0 ? 'free' : demo.price }}</p>
       </div>
       <div>
@@ -16,35 +16,35 @@
           <i>{{ demo.rating || 'No reviews yet' }}</i>
         </small>
         <ul>
-          <li class="text-sm mt-3 flex items-center">
-            <SvgLocation class="h-4 w-4 mr-2" />
+          <li class="flex items-center mt-3 text-sm">
+            <SvgLocation class="w-4 h-4 mr-2" />
             {{ demo.location }}
           </li>
-          <li class="text-sm mt-3 flex items-center">
-            <SvgLanguage class="h-4 w-4 mr-2" />
+          <li class="flex items-center mt-3 text-sm">
+            <SvgLanguage class="w-4 h-4 mr-2" />
             <span>{{ demo.languages.join(", ") }}</span>
           </li>
-          <li class="text-sm mt-3 flex items-center">
-            <SvgDevice class="h-4 w-4 mr-2" />
+          <li class="flex items-center mt-3 text-sm">
+            <SvgDevice class="w-4 h-4 mr-2" />
             <span>{{ demo.contact_methods.join(", ") }}</span>
           </li>
         </ul>
       </div>
     </div>
-    <div class="mt-6 pt-4 border-t">
+    <div class="pt-4 mt-6 border-t">
       <h4>{{ demo.job_title }}</h4>
     </div>
-    <ul class="mt-5 flex flex-wrap">
+    <ul class="flex flex-wrap mt-5">
       <li
         v-for="(tag, index) in demo.tags"
         :key="index"
-        class="bg-indigo-100 rounded whitespace-no-wrap leading-none py-1 px-3 mr-2 mb-2 text-sm font-semibold"
+        class="px-3 py-1 mb-2 mr-2 text-sm font-semibold leading-none whitespace-no-wrap bg-indigo-100 rounded"
       >{{ tag }}</li>
     </ul>
     <div class="mt-4">
       <nuxt-link
         :to="`listing/${slugify(demo.job_title)}`"
-        class="uppercase inline-block leading-none text-xs font-bold rounded-full py-4 px-8 text-white bg-brand-purple shadow-purple hover:shadow-purpleLg transition duration-300 focus:outline-none"
+        class="inline-block px-8 py-4 font-bold leading-none text-white uppercase transition duration-300 rounded-full view-listing bg-brand-purple shadow-purple hover:shadow-purpleLg focus:outline-none"
       >view listing</nuxt-link>
     </div>
   </div>
@@ -94,5 +94,9 @@ export default {
   background-color: #edeaea;
   border: 2px solid #fff;
   border-radius: 100%;
+}
+
+.view-listing {
+  font-size: 13px;
 }
 </style>

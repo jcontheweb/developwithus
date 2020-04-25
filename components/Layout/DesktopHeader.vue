@@ -1,21 +1,33 @@
 <template>
-  <header ref="header" class="hidden lg:block absolute top-0 inset-x-0 z-50 py-5">
-    <div class="px-12 flex justify-between items-center">
-      <p class="font-semibold text-2xl tracking-wide text-offblack">Developwithus</p>
-      <div>
+  <header
+    ref="header"
+    class="inset-x-0 top-0 z-50 hidden py-5 lg:block"
+    :class="{ 'absolute': fixed }"
+  >
+    <div class="flex items-center justify-between px-12">
+      <nuxt-link to="/" class="text-2xl font-semibold tracking-wide text-offblack">Developwithus</nuxt-link>
+      <div class="flex items-center">
         <nuxt-link
-          class="link ml-12 transition duration-300 text-white hover:text-brand-purple"
+          class="ml-12 transition duration-300 link hover:text-brand-purple"
           to="/"
         >Find a developer</nuxt-link>
         <nuxt-link
-          class="link ml-12 transition duration-300 text-white hover:text-brand-purple"
+          class="ml-12 transition duration-300 link hover:text-brand-purple"
           to="/"
         >Become a developer</nuxt-link>
-        <nuxt-link
-          class="link ml-12 transition duration-300 text-white hover:text-brand-purple"
-          to="/"
-        >Login</nuxt-link>
-        <Button class="ml-8" modifier="primary" size="small" text="sign up" />
+        <div v-if="!$store.getters.isAuthenticated" class="inline-block ml-12">
+          <nuxt-link class="transition duration-300 link hover:text-brand-purple" to="/">Login</nuxt-link>
+          <Button
+            @click="$router.push(`/register`)"
+            class="ml-8"
+            modifier="primary"
+            size="small"
+            text="sign up"
+          />
+        </div>
+        <div class="relative inline-block ml-12" v-else>
+          <HeaderDropdown />
+        </div>
       </div>
     </div>
   </header>
@@ -24,26 +36,35 @@
 <script>
 export default {
   components: {
-    Button: () => import('~/components/UI/Button.vue')
+    Button: () => import("~/components/UI/Button.vue"),
+    HeaderDropdown: () => import("~/components/Layout/HeaderDropdown.vue")
+  },
+  props: {
+    fixed: {
+      type: Boolean,
+      default: true
+    }
   },
   mounted() {
-    const header = this.$refs.header;
-    window.addEventListener("scroll", event => {
-      if (window.scrollY >= 300) {
-        header.classList.remove("absolute");
-        header.classList.add("fixed");
-      } else {
-        header.classList.remove("fixed");
-        header.classList.add("absolute");
-      }
-    });
+    if (this.fixed) {
+      const header = this.$refs.header;
+      window.addEventListener("scroll", event => {
+        if (window.scrollY >= 300) {
+          header.classList.remove("absolute");
+          header.classList.add("fixed");
+        } else {
+          header.classList.remove("fixed");
+          header.classList.add("absolute");
+        }
+      });
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
 header.fixed {
-  @apply bg-white shadow-input py-3;
+  @apply bg-white shadow-header py-3;
 
   .link {
     @apply text-offblack;
@@ -53,12 +74,22 @@ header.fixed {
     @apply text-brand-purple;
   }
 
-  button {
+  .button {
     @apply bg-brand-purple border-brand-purple text-white shadow-purple;
   }
 
-  button:hover {
+  .button:hover {
     @apply shadow-purpleLg;
+  }
+}
+
+header.absolute {
+  .link {
+    @apply text-white;
+  }
+
+  .link:hover {
+    @apply text-brand-purple;
   }
 }
 </style>
