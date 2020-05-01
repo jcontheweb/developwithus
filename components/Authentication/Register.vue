@@ -1,15 +1,15 @@
 <template>
   <div v-if="isActive" class="fixed inset-0 flex items-center justify-center bg-white">
     <div class="form-row">
-      <label for="">email</label>
+      <label for>email</label>
       <input type="email" v-model="email" />
     </div>
     <div class="form-row">
-      <label for="">username</label>
+      <label for>username</label>
       <input type="text" v-model="username" />
     </div>
     <div class="form-row">
-      <label for="">password</label>
+      <label for>password</label>
       <input type="text" v-model="password" />
     </div>
     <button @click="register">test</button>
@@ -40,6 +40,12 @@ export default {
           password
         }
       });
+
+      const { data } = await this.$axios.$get(
+        `profile/${this.$store.getters.loggedInUser.id}`
+      );
+
+      this.$store.commit("SET_PROFILE", data);
 
       this.$router.push("/settings");
     }
