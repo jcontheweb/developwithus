@@ -35,6 +35,8 @@ export const actions = {
 
             commit("SET_PROFILE", data);
         }
+
+        console.log(getters.loggedInUser)
     },
     async WorkExperienceRemove({ commit }, payload) {
         const requestedBy = this.getters.loggedInUserProfile.id
