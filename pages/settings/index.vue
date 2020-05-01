@@ -45,7 +45,7 @@
           <!-- <button
             @click="uploadAvatar"
             class="px-8 py-4 font-semibold text-white bg-brand-purple"
-          >Upload</button> -->
+          >Upload</button>-->
         </div>
       </aside>
       <article class="flex-1 max-w-3xl mx-auto">
@@ -128,10 +128,12 @@ export default {
   },
   computed: {
     avatar() {
-      return (
-        this.image.image ||
-        `${process.env.uploadURL}/${this.$store.getters.loggedInUserProfile.avatar}`
-      );
+      if (this.$store.getters.loggedInUserProfile) {
+        return (
+          this.image.image ||
+          `${process.env.uploadURL}/${this.$store.getters.loggedInUserProfile.avatar}`
+        );
+      }
     }
   }
 };
