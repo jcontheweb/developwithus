@@ -221,7 +221,6 @@ export default {
     SvgLocation: () => import("~/components/Svg/Location.vue"),
     SvgLanguage: () => import("~/components/Svg/Language.vue"),
     SvgDevice: () => import("~/components/Svg/Device.vue"),
-    Button: () => import("~/components/UI/Button.vue")
   },
   data: () => ({
     data: null,

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1234px" height="778px" viewBox="0 0 1234 778" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Path 7 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="19.3999562%" y1="28.9995687%" x2="43.6886906%" y2="57.9167565%" id="linearGradient-1">
+            <stop stop-color="#DEDAFF" offset="0%"></stop>
+            <stop stop-color="#F4F3FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mentory---Web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.398087">
+        <g id="Become-a-mentor" transform="translate(0.000000, -3143.000000)" fill="url(#linearGradient-1)">
+            <path d="M196.88988,2953.75972 C488.319436,3047.38781 696.247647,3355.28717 898.84409,3405.75139 C1108.35175,3457.93711 1209.93969,3548.45698 1181.85109,3685.78102 C1153.7625,3823.10506 887.518163,3942.05239 593.26451,3765.24695 C299.010858,3588.44152 231.535528,3749.9909 -1.5074374,3670.05774 C-59.264359,3650.24726 -126.386937,3616.67599 -202.875172,3569.34392 C63.6348627,3158.95446 196.88988,2953.75972 196.88988,2953.75972 Z" id="Path-7-Copy" transform="translate(491.783520, 3403.954632) rotate(-33.000000) translate(-491.783520, -3403.954632) "></path>
+        </g>
+    </g>
+</svg>

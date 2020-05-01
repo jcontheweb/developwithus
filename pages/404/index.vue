@@ -1,19 +1,14 @@
 <template>
-<div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center">
     <h1>Oops! We can’t find that page...</h1>
-    <p class="max-w-lg mt-4 text-center subtitle">We can’t seem to find the page you’re looking for, but we found really good mentors for you.</p>
-    <Button class="mt-6" modifier="primary" size="large" text="view developers"></Button>
-</div>
+    <p
+      class="max-w-lg mt-4 text-center subtitle"
+    >We can’t seem to find the page you’re looking for, but we found really good mentors for you.</p>
+  </div>
 </template>
 
 <script>
 export default {
-    layout: "profile",
-    components: {
-        Button: () => import("~/components/UI/Button.vue")
-    }
-}
+  layout: "errors",
+};
 </script>
-
-<style lang="scss">
-</style>

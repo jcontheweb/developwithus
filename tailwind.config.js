@@ -19,7 +19,9 @@ module.exports = {
 
       white50: 'rgba(255, 255, 255, 0.35)',
       black30: 'rgba(0, 0, 0, 0.3)',
+      black50: 'rgba(0, 0, 0, 0.5)',
       black75: 'rgba(0, 0, 0, 0.75)',
+      black85: 'rgba(0, 0, 0, 0.85)',
 
       brand: {
         red: '#E50116',
@@ -716,5 +718,7 @@ module.exports = {
     transitionDuration: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms')
+  ],
 }

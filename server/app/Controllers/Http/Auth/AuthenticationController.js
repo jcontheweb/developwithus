@@ -1,6 +1,7 @@
 'use strict'
 
 const User = use('App/Models/User')
+const Profile = use('App/Models/Profile')
 
 class AuthenticationController {
     async register({ request, auth, response }) {
@@ -12,6 +13,12 @@ class AuthenticationController {
             const user = await User.create(userData)
 
             const token = await auth.generate(user)
+
+            const profile = await Profile.create({
+                first_name: '',
+                surname: '',
+                user_id: user.id
+            })
 
             return response.json({
                 status: 'success',

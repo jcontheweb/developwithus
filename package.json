@@ -13,14 +13,18 @@
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.3.6",
+    "body-scroll-lock": "^3.0.2",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
     "sass-loader": "^8.0.2",
     "slugify": "^1.4.0",
-    "vue-carousel": "^0.18.0"
+    "vue-carousel": "^0.18.0",
+    "vue-flatpickr-component": "^8.1.5",
+    "vue-multiselect": "^2.1.6"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
-    "@nuxtjs/tailwindcss": "^1.0.0"
+    "@nuxtjs/tailwindcss": "^1.0.0",
+    "@tailwindcss/custom-forms": "^0.2.1"
   }
 }

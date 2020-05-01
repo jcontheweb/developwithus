@@ -13,7 +13,7 @@
         >Find a developer</nuxt-link>
         <nuxt-link
           class="ml-12 transition duration-300 link hover:text-brand-purple"
-          to="/"
+          :to="$URLS.becoming"
         >Become a developer</nuxt-link>
         <div v-if="!$store.getters.isAuthenticated" class="inline-block ml-12">
           <nuxt-link class="transition duration-300 link hover:text-brand-purple" to="/">Login</nuxt-link>
@@ -36,7 +36,6 @@
 <script>
 export default {
   components: {
-    Button: () => import("~/components/UI/Button.vue"),
     HeaderDropdown: () => import("~/components/Layout/HeaderDropdown.vue")
   },
   props: {
@@ -58,6 +57,8 @@ export default {
         }
       });
     }
+
+    console.log(this.$URLS)
   }
 };
 </script>

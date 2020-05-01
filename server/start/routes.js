@@ -26,4 +26,16 @@ Route.group(() => {
   Route.post("register", "Auth/AuthenticationController.register");
   Route.post("login", "Auth/AuthenticationController.login");
   Route.get("me", "Auth/AuthenticationController.me").middleware(["auth"]);
+
+  Route.post("work-experience", "WorkExperienceController.create");
+  Route.delete("work-experience", "WorkExperienceController.delete");
+
+  Route.post("education", "EducationController.create");
+  Route.delete("education", "EducationController.delete");
+  // Route.get("work-experience/:id", "WorkExperienceController.get");
+
+
+  Route.get("profile/:id", "ProfileController.get");
+  Route.put("profile", "ProfileController.update");
+  Route.post("profile/avatar", "ProfileController.avatar");
 }).prefix("api");

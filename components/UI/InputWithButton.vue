@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="relative bg-white xs:p-2 flex justify-between rounded-full shadow-input mt-10">
-      <p class="pl-6 flex flex-1">
+    <div class="relative flex justify-between mt-10 bg-white rounded-full xs:p-2 shadow-input">
+      <p class="flex flex-1 pl-6">
         <slot />
         <input
-          class="focus:outline-none py-5 px-3 pr-10 xs:pr-3 w-full placeholder-black rounded-full leading-tight"
+          class="w-full px-3 py-5 pr-10 leading-tight placeholder-black rounded-full focus:outline-none xs:pr-3"
           :placeholder="placeholder"
           :type="type"
         />
       </p>
       <Button @click="$emit('click')" class="hidden xs:block" :text="text" modifier="primary" size="large" />
     </div>
-    <Button @click="$emit('click')" class="xs:hidden mt-4 w-full" :text="text" modifier="primary" size="large" />
+    <Button @click="$emit('click')" class="w-full mt-4 xs:hidden" :text="text" modifier="primary" size="large" />
   </div>
 </template>
 
@@ -33,9 +33,6 @@ export default {
       default: "submit"
     }
   },
-  components: {
-      Button: () => import('~/components/UI/Button.vue')
-  }
 };
 </script>
 

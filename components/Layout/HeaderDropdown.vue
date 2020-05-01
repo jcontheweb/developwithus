@@ -2,8 +2,9 @@
   <div>
     <button @click="open = !open" class="flex items-center focus:outline-none group">
       <span
+        v-if="$store.getters.loggedInUserProfile"
         class="w-10 h-10 bg-no-repeat bg-cover rounded-full"
-        style="background-image:url(/profile-avatar.png)"
+        :style="`background-image:url(${avatar})`"
       ></span>
       <div class="ml-1 text-left">
         <p
@@ -23,34 +24,41 @@
         >Developer</p>
       </div>
     </button>
-    <div v-if="open" class="absolute right-0 z-10 text-black bg-white rounded shadow-header">
-      <nuxt-link
-        v-for="(route, index) in routes"
-        :key="index"
-        class="flex items-center px-6 py-3 whitespace-no-wrap transition duration-200 border-b border-gray-100 hover:text-brand-purple hover:bg-indigo-100 last:border-b-0 first:rounded-t last:rounded-b"
-        :to="route.url"
-        @click.native="open = false"
+    <transition>
+      <div
+        v-if="open"
+        class="absolute right-0 z-10 text-black origin-top-right transform bg-white rounded shadow-header"
       >
-        <span class="mr-4" v-html="route.icon"></span>
-        {{ route.label }}
-      </nuxt-link>
-      <button
-        class="flex items-center w-full px-6 py-3 whitespace-no-wrap transition duration-200 border-b border-gray-100 focus:outline-none hover:text-brand-purple hover:bg-indigo-100 last:border-b-0 first:rounded-t last:rounded-b"
-      >
-        <span class="mr-4" v-html="icons.LOG_OUT"></span>
-        Log out
-      </button>
-    </div>
+        <nuxt-link
+          v-for="(route, index) in routes"
+          :key="index"
+          class="flex items-center px-6 py-3 whitespace-no-wrap transition duration-200 border-b border-gray-100 hover:text-brand-purple hover:bg-indigo-100 last:border-b-0 first:rounded-t last:rounded-b"
+          :to="route.url"
+          @click.native="open = false"
+        >
+          <span class="mr-4" v-html="route.icon"></span>
+          {{ route.label }}
+        </nuxt-link>
+        <button
+          class="flex items-center w-full px-6 py-3 whitespace-no-wrap transition duration-200 border-b border-gray-100 focus:outline-none hover:text-brand-purple hover:bg-indigo-100 last:border-b-0 first:rounded-t last:rounded-b"
+        >
+          <span class="mr-4" v-html="icons.LOG_OUT"></span>
+          Log out
+        </button>
+      </div>
+    </transition>
     <div v-if="open" @click="open = false" class="fixed inset-0"></div>
   </div>
 </template>
 
 <script>
 import * as icons from "~/components/Layout/header-icons.js";
+import { state } from '~/store/index'
+import URLS from '~/config/urls/urls'
 
 const routes = [
   {
-    url: "/become-a-developer",
+    url: URLS.becoming,
     label: "Become a developer",
     icon: icons.BECOME_A_DEVELOPER
   },
@@ -65,7 +73,7 @@ const routes = [
     icon: icons.SESSIONS
   },
   {
-    url: "/me/",
+    url: `/me`,
     label: "Public profile",
     icon: icons.PUBLIC_PROFILE
   },
@@ -80,6 +88,14 @@ export default {
     routes,
     icons,
     open: false
-  })
+  }),
+  computed: {
+    avatar() {
+      return `${process.env.uploadURL}/${this.$store.getters.loggedInUserProfile.avatar}`
+    }
+  }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>

@@ -1,15 +1,15 @@
 <template>
   <div class="relative z-10">
-    <div class="shadow-skillcard bg-white border border-gray-100 rounded-md w-full py-6 px-4">
+    <div class="w-full px-4 py-6 bg-white border border-gray-100 rounded-md shadow-skillcard">
       <h3>WordPress Development</h3>
       <p
         class="mt-3"
       >Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, cumque unde esse reprehenderit qui suscipit atque sit commodi, repellendus quos culpa, perferendis ipsum. Sint, excepturi quas recusandae provident dignissimos corrupti!</p>
-      <div class="sm:flex items-center mt-3 justify-between">
-        <div class="details flex">
+      <div class="items-center justify-between mt-3 sm:flex">
+        <div class="flex details">
           <p class="flex items-center">
             <svg
-              class="fill-current w-4 h-4 mr-2"
+              class="w-4 h-4 mr-2 fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
@@ -19,7 +19,7 @@
             </svg>
             From 60 mins.
           </p>
-          <p class="ml-4 flex items-center">
+          <p class="flex items-center ml-4">
             <svg
               class="mr-1"
               stroke="currentColor"
@@ -46,9 +46,6 @@
 
 <script>
 export default {
-  components: {
-    Button: () => import("~/components/UI/Button.vue")
-  }
 };
 </script>
 

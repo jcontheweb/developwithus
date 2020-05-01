@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen bg-indigo-50">
-    <DesktopHeader :fixed="false" class="bg-white shadow-header text-black" />
+    <DesktopHeader :fixed="false" class="text-black bg-white shadow-header" />
     <MobileHeader @toggle="display_sidebar = !display_sidebar" />
     <transition name="fade2">
       <div
@@ -30,6 +30,3 @@ export default {
   })
 };
 </script>
-
-<style lang="scss">
-</style>

@@ -1,44 +1,44 @@
 <template>
   <footer class="py-12 bg-white">
     <div class="container">
-      <div class="flex flex-wrap text-center max-w-md mx-auto lg:text-left lg:max-w-none lg:mx-0 lg:flex-no-wrap lg:justify-between">
-        <div class="w-full flex-1 order-last mt-10 lg:mt-0 lg:w-auto lg:order-first">
-          <p class="font-semibold text-2xl tracking-wide text-offblack">Developwithus</p>
-          <p class="font-semibold text-lg mt-4">Welcome to your best self.</p>
+      <div class="flex flex-wrap max-w-md mx-auto text-center lg:text-left lg:max-w-none lg:mx-0 lg:flex-no-wrap lg:justify-between">
+        <div class="flex-1 order-last w-full mt-10 lg:mt-0 lg:w-auto lg:order-first">
+          <p class="text-2xl font-semibold tracking-wide text-offblack">Developwithus</p>
+          <p class="mt-4 text-lg font-semibold">Welcome to your best self.</p>
           <p
-            class="text-sm mt-4"
+            class="mt-4 text-sm"
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, necessitatibus maxime aspernatur tenetur perspiciatis provident nam reiciendis ullam laborum consequuntur totam suscipit, quisquam aut, voluptate mollitia dolorem odit corrupti sunt.</p>
-          <p class="text-xs mt-4">© 2020, Developwithus. All Rights Reserved.</p>
+          <p class="mt-4 text-xs">© 2020, Developwithus. All Rights Reserved.</p>
         </div>
-        <div class="lg:flex justify-between lg:ml-24 w-full lg:w-auto">
+        <div class="justify-between w-full lg:flex lg:ml-24 lg:w-auto">
           <div>
-            <p class="font-bold mb-2">Developwithus</p>
-            <nuxt-link class="footer-link text-sm mb-2" to="/">Blog</nuxt-link>
-            <nuxt-link class="footer-link text-sm mb-2" to="/">Blog</nuxt-link>
-            <nuxt-link class="footer-link text-sm mb-2" to="/">Blog</nuxt-link>
-            <nuxt-link class="footer-link text-sm mb-2" to="/">Blog</nuxt-link>
-            <nuxt-link class="footer-link text-sm" to="/">Blog</nuxt-link>
+            <p class="mb-2 font-bold">Developwithus</p>
+            <nuxt-link class="mb-2 text-sm footer-link" to="/">Blog</nuxt-link>
+            <nuxt-link class="mb-2 text-sm footer-link" to="/">Blog</nuxt-link>
+            <nuxt-link class="mb-2 text-sm footer-link" to="/">Blog</nuxt-link>
+            <nuxt-link class="mb-2 text-sm footer-link" to="/">Blog</nuxt-link>
+            <nuxt-link class="text-sm footer-link" to="/">Blog</nuxt-link>
           </div>
           <div class="mt-10 lg:mt-0 lg:ml-24">
             <div>
-              <p class="font-bold mb-2">Developers</p>
-              <nuxt-link class="footer-link text-sm" to="/">Become a developer</nuxt-link>
+              <p class="mb-2 font-bold">Developers</p>
+              <nuxt-link class="text-sm footer-link" :to="$URLS.becoming">Become a developer</nuxt-link>
             </div>
             <div class="mt-10 lg:mt-8">
-              <p class="font-bold mb-2">Hiring</p>
-              <nuxt-link class="footer-link text-sm mb-2" to="/">Find a developer</nuxt-link>
-              <nuxt-link class="footer-link text-sm" to="/">Upgrade</nuxt-link>
+              <p class="mb-2 font-bold">Hiring</p>
+              <nuxt-link class="mb-2 text-sm footer-link" to="/">Find a developer</nuxt-link>
+              <nuxt-link class="text-sm footer-link" to="/">Upgrade</nuxt-link>
             </div>
           </div>
           <div class="mt-10 lg:mt-0 lg:ml-24">
             <div>
-              <p class="font-bold mb-2">Get in Touch</p>
-              <a class="footer-link text-sm" href="mailto:hello@developwith.us">hello@developwith.us</a>
+              <p class="mb-2 font-bold">Get in Touch</p>
+              <a class="text-sm footer-link" href="mailto:hello@developwith.us">hello@developwith.us</a>
               <div class="mt-4">
                 <a
                   href="https://linkedin.com"
                   target="_blank"
-                  class="social text-black hover:text-brand-purple hover:shadow-lg focus:outline-none mr-2"
+                  class="mr-2 text-black social hover:text-brand-purple hover:shadow-lg focus:outline-none"
                 >
                   <svg
                     stroke="currentColor"
@@ -58,7 +58,7 @@
                 <a
                   href="https://instagram.com"
                   target="_blank"
-                  class="social text-black hover:text-brand-purple hover:shadow-lg focus:outline-none"
+                  class="text-black social hover:text-brand-purple hover:shadow-lg focus:outline-none"
                 >
                   <svg
                     stroke="currentColor"

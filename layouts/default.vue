@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <DesktopHeader />
     <MobileHeader @toggle="display_sidebar = !display_sidebar" />
     <transition name="fade2">
@@ -8,7 +8,7 @@
     <transition name="sidebar">
       <MobileSidebar @close="display_sidebar = false" v-if="display_sidebar" />
     </transition>
-    <nuxt />
+    <nuxt class="flex-1" />
     <Footer />
   </div>
 </template>

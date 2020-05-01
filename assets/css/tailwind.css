@@ -1,6 +1,7 @@
 /* purgecss start ignore */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
+@import "./plugins.css";
 /* purgecss end ignore */
 @import "tailwindcss/utilities";
 .container {
@@ -11,9 +12,9 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity .5s;
+  transition: opacity 0.25s;
 }
-.page-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.page-leave-to {
   opacity: 0;
 }
 
@@ -31,6 +32,13 @@
 
 html {
   font-family: "Source Sans Pro", sans-serif;
+}
+
+::selection {
+  @apply text-white bg-brand-purple; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  @apply text-white bg-brand-purple; /* Gecko Browsers */
 }
 
 h1 {
@@ -116,7 +124,6 @@ li {
   transform: translateY(-50%) translateX(-50%);
 }
 
-
 .VueCarousel-navigation-button {
   background: #fff !important;
   border: 1px solid #e0deee;
@@ -140,4 +147,28 @@ li {
   right: 46px !important;
   top: 45% !important;
   border-radius: 100%;
+}
+
+.form-row {
+  @apply w-full;
+}
+
+.form-row label {
+  @apply block mb-3 text-base font-semibold leading-none tracking-tight text-black;
+}
+
+.form-row input[type="text"]:focus,
+.form-row input[type="email"]:focus,
+.form-row input[type="password"]:focus {
+  @apply shadow-outline outline-none;
+}
+
+.form-row label.required:after {
+  content: "*";
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  @apply w-full h-12 p-3 text-base leading-none tracking-tight text-black border border-indigo-200 rounded;
 }

@@ -1,8 +1,17 @@
 <template>
   <div v-if="isActive" class="fixed inset-0 flex items-center justify-center bg-white">
-    <input type="email" v-model="email" />
-    <input type="text" v-model="username" />
-    <input type="text" v-model="password" />
+    <div class="form-row">
+      <label for="">email</label>
+      <input type="email" v-model="email" />
+    </div>
+    <div class="form-row">
+      <label for="">username</label>
+      <input type="text" v-model="username" />
+    </div>
+    <div class="form-row">
+      <label for="">password</label>
+      <input type="text" v-model="password" />
+    </div>
     <button @click="register">test</button>
   </div>
 </template>

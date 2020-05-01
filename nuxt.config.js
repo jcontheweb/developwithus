@@ -28,7 +28,12 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: './plugins/vue-carousel.js', mode: 'client' }],
+  plugins: [
+    { src: './plugins/vue-carousel.js', mode: 'client' },
+    '~/plugins/global.js',
+    '~/plugins/bus.js',
+    '~/plugins/urls.js',
+  ],
   /*
   ** Nuxt.js dev-modules
   */
@@ -51,6 +56,10 @@ export default {
   */
   axios: {
     baseURL: process.env.BASE_URL || 'http://127.0.0.1:3333/api'
+  },
+
+  env: {
+    uploadURL: 'http://localhost:3333/uploads/'
   },
 
   auth: {

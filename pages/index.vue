@@ -202,7 +202,7 @@
             <p
               class="mt-6 subtitle"
             >Add an extra source of income by helping others to get better at what you already know. From where you are. At your pace.</p>
-            <Button class="mt-8" modifier="primary" size="large" text="become a developer" />
+            <Button @click="$router.push($URLS.becoming)" class="mt-8" modifier="primary" size="large" text="become a developer" />
           </div>
           <div class="order-first w-full lg:flex-1 lg:ml-12 lg:order-last">
             <img class="mx-auto w-80 lg:mx-0 lg:w-full" src="/cta.53f4bf63.png" alt />
@@ -210,17 +210,7 @@
         </div>
       </div>
     </section>
-    <section class="relative z-10 py-20 sign-up sm:py-40">
-      <div class="container text-center">
-        <h2 class="font-bold text-white">Growth starts here.</h2>
-        <div class="max-w-2xl mx-auto">
-          <p
-            class="mt-6 text-white subtitle"
-          >Informative content to help you grow right in your inbox. Best of the best. Once per month. No spam.</p>
-          <InputWithButton placeholder="Your email" type="email" text="sign up" />
-        </div>
-      </div>
-    </section>
+    <NewsletterCapture/>
   </div>
 </template>
 
@@ -229,15 +219,13 @@ const chevron = `<svg class="inline w-8 fill-current text-brand-purple" xmlns="h
 
 export default {
   components: {
-    Button: () => import("~/components/UI/Button.vue"),
     ProfileCard: () => import("~/components/Profile/Card.vue"),
     SkillCard: () => import("~/components/Skill/Card.vue"),
-    InputWithButton: () => import("~/components/UI/InputWithButton.vue")
+    InputWithButton: () => import("~/components/UI/InputWithButton.vue"),
+    NewsletterCapture: () => import("~/components/NewsletterCapture.vue")
   },
   data() {
     return { chevron };
-  },
-  mounted() {
   }
 };
 </script>
