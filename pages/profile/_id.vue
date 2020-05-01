@@ -95,6 +95,8 @@ export default {
   },
   computed: {
     avatar() {
+
+      
       return `${process.env.uploadURL}/${this.profile.avatar}`;
     }
   }
