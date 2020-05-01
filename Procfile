@@ -1,1 +1,1 @@
-web: nuxt start
+web: nuxt start && cd ./server && adonis migration:refresh
