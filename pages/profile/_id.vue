@@ -97,7 +97,7 @@ export default {
     avatar() {
 
       
-      return `${process.env.uploadURL}/${this.profile.avatar}`;
+      return `/${this.profile.avatar}`;
     }
   }
 };
