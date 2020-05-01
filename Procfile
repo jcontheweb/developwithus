@@ -1,1 +1,2 @@
-web: nuxt start && cd ./server && adonis migration:refresh
+release: cd ./server && node ace migration:run --force
+web: nuxt start
