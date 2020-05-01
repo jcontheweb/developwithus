@@ -97,7 +97,7 @@ export default {
     avatar() {
 
       
-      return `/${this.profile.avatar}`;
+      return `${this.profile.avatar}`;
     }
   }
 };
