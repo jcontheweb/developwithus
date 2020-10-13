@@ -3,7 +3,11 @@
     <DesktopHeader />
     <MobileHeader @toggle="display_sidebar = !display_sidebar" />
     <transition name="fade2">
-      <div @click="display_sidebar = false" v-if="display_sidebar" class="fixed inset-0 z-50 bg-black75"></div>
+      <div
+        @click="display_sidebar = false"
+        v-if="display_sidebar"
+        class="fixed inset-0 z-50 bg-black75"
+      ></div>
     </transition>
     <transition name="sidebar">
       <MobileSidebar @close="display_sidebar = false" v-if="display_sidebar" />
@@ -14,6 +18,8 @@
 </template>
 
 <script>
+import { updateLastActive } from '~/config/api/api'
+
 export default {
   components: {
     DesktopHeader: () => import("~/components/Layout/DesktopHeader.vue"),
@@ -21,8 +27,13 @@ export default {
     MobileSidebar: () => import("~/components/Layout/MobileSidebar.vue"),
     Footer: () => import("~/components/Layout/Footer.vue")
   },
+  watch: {
+    $route() {
+      updateLastActive()
+    }
+  },
   data: () => ({
-    display_sidebar: false
+    display_sidebar: false,
   })
 };
 </script>

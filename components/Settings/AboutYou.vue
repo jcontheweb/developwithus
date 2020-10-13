@@ -32,17 +32,17 @@
           </div>
           <div class="form-row">
             <label for="first_name">Date of birth</label>
-                    <flat-pickr
-                v-model="profile.dob"                                                  
-                class="form-control" 
-                placeholder="Select date"               
-                name="date">
-        </flat-pickr>
+            <flat-pickr
+              v-model="profile.dob"
+              class="form-control"
+              placeholder="Select date"
+              name="date"
+            ></flat-pickr>
             <!-- <select v-model="profile.dob" name id class="form-select">
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
-            </select> -->
+            </select>-->
           </div>
         </div>
         <div class="grid grid-cols-1 gap-6 mt-6">
@@ -152,23 +152,22 @@ export default {
   },
   created() {
     this.profile = JSON.parse(
-      JSON.stringify(this.$store.getters.loggedInUserProfile)
+      JSON.stringify(this.$store.getters.loggedInUser.profile)
     );
 
     if (this.profile.languages) {
       this.profile.languages = this.profile.languages.split(",");
     }
-
   },
   methods: {
     async save() {
-      const languages = this.profile.languages.toString();
-      const profile_copy = JSON.parse(
-        JSON.stringify(this.profile)
-      );
-
-      profile_copy.languages = languages;
+      const profile_copy = JSON.parse(JSON.stringify(this.profile));
       
+      if (this.profile.languages) {
+        const languages = this.profile.languages.toString();
+        profile_copy.languages = languages;
+      }
+
       const res = await this.$axios.$put("profile", profile_copy);
     },
     handleNewEducation(education) {
@@ -181,16 +180,16 @@ export default {
   },
   computed: {
     education() {
-      if (!this.$store.getters.loggedInUserProfile) {
+      if (!this.$store.getters.loggedInUser.education) {
         return null;
       }
 
-      return this.$store.getters.loggedInUserProfile.education;
+      return this.$store.getters.loggedInUser.education;
     },
     work() {
-      if (!this.$store.getters.loggedInUserProfile.work) return null
+      if (!this.$store.getters.loggedInUser.work) return null;
 
-      return this.$store.getters.loggedInUserProfile.work
+      return this.$store.getters.loggedInUser.work;
     }
   }
 };

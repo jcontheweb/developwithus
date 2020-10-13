@@ -5,20 +5,20 @@ const Profile = use('App/Models/Profile')
 
 class AuthenticationController {
     async register({ request, auth, response }) {
-        const req = request.only(['username', 'email', 'password'])
+        const req = request.only(['email', 'password'])
 
         try {
-            const userData = { username: req.username, email: req.email, password: req.password }
+            const userData = { email: req.email, password: req.password }
 
             const user = await User.create(userData)
 
             const token = await auth.generate(user)
 
-            const profile = await Profile.create({
-                first_name: '',
-                surname: '',
-                user_id: user.id
-            })
+            // const profile = await Profile.create({
+            //     first_name: req.first_name,
+            //     surname: req.surname,
+            //     user_id: user.id
+            // })
 
             return response.json({
                 status: 'success',
@@ -53,7 +53,24 @@ class AuthenticationController {
     }
 
     async me({ auth, response }) {
-        const user = await auth.getUser()
+        const { id } = await auth.getUser()
+        const user = await User.find(id)
+        const profile = await user.profile().fetch()
+
+        if (profile) {
+            user.profile = profile
+        } else {
+            user.profile = null
+        }
+        // const profile = await user.profile().fetch()
+        // const work = await profile.work_experiences().fetch()
+        // const education = await profile.educations().fetch()
+        // const listings = await user.listings().fetch()
+
+        // user.profile = profile
+        // user.work = work
+        // user.education = education
+        // user.listings = listings
 
         return response.json({
             status: 'success',

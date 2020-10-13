@@ -63,6 +63,7 @@ export default {
   },
 
   auth: {
+    plugins: ['~/plugins/auth.js'],
     strategies: {
       local: {
         endpoints: {
@@ -71,6 +72,9 @@ export default {
           logout: false
         }
       }
+    },
+    redirect: {
+      home: '/settings'
     }
   },
   /*

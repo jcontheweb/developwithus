@@ -7,6 +7,35 @@ const Helpers = use('Helpers')
 const crypto = require('crypto')
 
 class ProfileController {
+    async create({ response, request, auth }) {
+        const { first_name, surname, gender, location, role, languages, avatar } = request.all()
+        const { id } = await auth.getUser()
+
+        const checkIfExists = await Profile.findBy('user_id', id)
+
+        if (checkIfExists) {
+            return response.status(400).json({
+                status: "error",
+                message: "A profile associated with this account already exists."
+            })
+        }
+
+        const profile = await Profile.create({
+            user_id: id,
+            first_name,
+            surname,
+            location,
+            gender,
+            languages,
+            avatar
+        })
+
+        return response.json({
+            status: "success",
+            data: profile
+        })
+    }
+
     async update({ response, request, auth }) {
         const data = request.except(['work', 'education', 'user_id', 'id', 'created_at', 'updated_at'])
 
@@ -78,6 +107,24 @@ class ProfileController {
         return response.json({
             status: "success",
             message: UserProfile
+        })
+    }
+
+    async getProfileById({ params, response }) {
+        const profile = await Profile.find(params.id)
+
+        return response.json({
+            status: "success",
+            data: profile
+        })
+    }
+
+    async getNameById({ params, response }) {
+        const { first_name, surname } = await Profile.find(params.id)
+
+        return response.json({
+            status: "success",
+            data: `${first_name} ${surname}`
         })
     }
 }

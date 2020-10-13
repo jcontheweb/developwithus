@@ -36,7 +36,6 @@ export default {
   },
   computed: {
     belongsToAuthenticatedUser() {
-      console.log(this.role)
       return this.role.profile_id == this.$store.getters.loggedInUserProfile.id
     },
     flattened() {

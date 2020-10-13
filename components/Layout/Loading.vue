@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="loading-page" v-if="loading">
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-white loading-page" v-if="loading">
     <p>Loading...</p>
   </div>
 </template>
@@ -10,14 +10,14 @@ export default {
     loading: false
   }),
   methods: {
-    start () {
-      this.loading = true
+    start() {
+      this.loading = true;
     },
-    finish () {
-      this.loading = false
+    finish() {
+      this.loading = false;
     }
   }
-}
+};
 </script>
 
 <style scoped>

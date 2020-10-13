@@ -18,12 +18,18 @@
 </template>
 
 <script>
+import { updateLastActive } from "~/config/api/api";
 export default {
   components: {
     DesktopHeader: () => import("~/components/Layout/DesktopHeader.vue"),
     MobileHeader: () => import("~/components/Layout/MobileHeader.vue"),
     MobileSidebar: () => import("~/components/Layout/MobileSidebar.vue"),
     Footer: () => import("~/components/Layout/Footer.vue")
+  },
+  watch: {
+    $route() {
+      updateLastActive();
+    }
   },
   data: () => ({
     display_sidebar: false

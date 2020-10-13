@@ -34,8 +34,21 @@ Route.group(() => {
   Route.delete("education", "EducationController.delete");
   // Route.get("work-experience/:id", "WorkExperienceController.get");
 
-
+  Route.post("profile", "ProfileController.create");
+  Route.get("profiles/:id", "ProfileController.getProfileById");
   Route.get("profile/:id", "ProfileController.get");
+  Route.get("profile/name/:id", "ProfileController.getNameById");
   Route.put("profile", "ProfileController.update");
   Route.post("profile/avatar", "ProfileController.avatar");
+
+  Route.post('listing', 'ListingController.create')
+  Route.get('listing', 'ListingController.index')
+
+
+  Route.post('active', async ({ auth }) => {
+    const user = await auth.getUser()
+    const profile = await user.profile().fetch()
+    profile.last_active = new Date()
+    await profile.save()
+  }).middleware(['auth'])
 }).prefix("api");

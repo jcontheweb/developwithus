@@ -18,6 +18,16 @@
   opacity: 0;
 }
 
+.auth-enter-active,
+.auth-leave-active {
+  transition: all 0.35s ease-in-out;
+}
+.auth-enter,
+.auth-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -160,7 +170,7 @@ li {
 .form-row input[type="text"]:focus,
 .form-row input[type="email"]:focus,
 .form-row input[type="password"]:focus {
-  @apply shadow-outline outline-none;
+  @apply border-2 border-indigo-200 outline-none;
 }
 
 .form-row label.required:after {
@@ -170,5 +180,5 @@ li {
 .form-row input,
 .form-row select,
 .form-row textarea {
-  @apply w-full h-12 p-3 text-base leading-none tracking-tight text-black border border-indigo-200 rounded;
+  @apply w-full h-12 p-3 text-base leading-none tracking-tight text-black border border-indigo-100 rounded;
 }

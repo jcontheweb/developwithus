@@ -20,7 +20,7 @@
               :style="`background-image:url(${avatar})`"
             ></span>
           </button>
-          <p class="mt-2 subtitle">{{ $store.getters.loggedInUser.username }}</p>
+          <p class="mt-2 subtitle">{{ $store.getters.loggedInUserProfile.first_name }}</p>
         </div>
         <div class="flex flex-col mt-6 rounded-md shadow-cardSlim">
           <button
@@ -89,15 +89,13 @@ export default {
     }
     // avatar:
   }),
-  // async fetch() {
-  //   if (!this.$store.getters.loggedInUserProfile) {
-  //     const { data } = await this.$axios.$get(
-  //       `profile/${this.$store.getters.loggedInUser.id}`
-  //     );
-  //     console.log("hit");
-  //     this.$store.commit("SET_PROFILE", data);
-  //   }
-  // },
+  async asyncData({ redirect, app }) {
+    const hasProfile = app.context.store.getters.hasProfile;
+
+    if (!hasProfile) {
+      redirect('/create-profile')
+    }
+  },
   methods: {
     editAvatar() {
       this.$refs.avatar.click();

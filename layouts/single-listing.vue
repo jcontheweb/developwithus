@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DesktopHeader :fixed="false" class="bg-white shadow-header text-black" />
+    <DesktopHeader :fixed="false" class="text-black bg-white shadow-header" />
     <MobileHeader @toggle="display_sidebar = !display_sidebar" />
     <transition name="fade2">
       <div
@@ -17,11 +17,18 @@
 </template>
 
 <script>
+import { updateLastActive } from '~/config/api/api'
+
 export default {
   components: {
     DesktopHeader: () => import("~/components/Layout/DesktopHeader.vue"),
     MobileHeader: () => import("~/components/Layout/MobileHeader.vue"),
     MobileSidebar: () => import("~/components/Layout/MobileSidebar.vue")
+  },
+    watch: {
+    $route() {
+      updateLastActive()
+    }
   },
   data: () => ({
     display_sidebar: false

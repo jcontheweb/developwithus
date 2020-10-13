@@ -16,7 +16,7 @@
           :to="$URLS.becoming"
         >Become a developer</nuxt-link>
         <div v-if="!$store.getters.isAuthenticated" class="inline-block ml-12">
-          <nuxt-link class="transition duration-300 link hover:text-brand-purple" to="/">Login</nuxt-link>
+          <nuxt-link class="transition duration-300 link hover:text-brand-purple" to="/login">Login</nuxt-link>
           <Button
             @click="$router.push(`/register`)"
             class="ml-8"
@@ -25,7 +25,7 @@
             text="sign up"
           />
         </div>
-        <div class="relative inline-block ml-12" v-else>
+        <div v-else class="relative inline-block ml-12">
           <HeaderDropdown />
         </div>
       </div>
@@ -57,8 +57,6 @@ export default {
         }
       });
     }
-
-    console.log(this.$URLS)
   }
 };
 </script>

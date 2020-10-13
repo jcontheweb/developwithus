@@ -2,7 +2,7 @@
   <div>
     <button @click="open = !open" class="flex items-center focus:outline-none group">
       <span
-        v-if="$store.getters.loggedInUserProfile"
+        v-if="$store.getters.loggedInUser"
         class="w-10 h-10 bg-no-repeat bg-cover rounded-full"
         :style="`background-image:url(${avatar})`"
       ></span>
@@ -10,7 +10,7 @@
         <p
           class="flex items-center text-sm leading-none transition duration-300 group-hover:text-brand-purple"
         >
-          {{ $store.getters.loggedInUser.username }}
+          {{ name }}
           <svg
             class="h-4 ml-1 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +40,7 @@
           {{ route.label }}
         </nuxt-link>
         <button
+          @click="$auth.logout()"
           class="flex items-center w-full px-6 py-3 whitespace-no-wrap transition duration-200 border-b border-gray-100 focus:outline-none hover:text-brand-purple hover:bg-indigo-100 last:border-b-0 first:rounded-t last:rounded-b"
         >
           <span class="mr-4" v-html="icons.LOG_OUT"></span>
@@ -91,7 +92,17 @@ export default {
   }),
   computed: {
     avatar() {
-      return `${process.env.uploadURL}/${this.$store.getters.loggedInUserProfile.avatar}`
+      if (this.$store.getters.loggedInUser.profile && this.$store.getters.loggedInUser.profile.avatar) {
+        return `${process.env.uploadURL}${this.$store.getters.loggedInUser.profile.avatar}`
+      }
+      return `${process.env.uploadURL}default.jpg`
+    },
+    name() {
+      if (this.$store.getters.loggedInUser.profile && this.$store.getters.loggedInUser.profile.first_name) {
+        return this.$store.getters.loggedInUser.profile.first_name
+      } else {
+        return this.$store.state.auth.user.email
+      }
     }
   }
 };

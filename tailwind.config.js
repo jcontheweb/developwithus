@@ -3,6 +3,20 @@ module.exports = {
   important: false,
   separator: ':',
   theme: {
+    spinner: (theme) => ({
+      default: {
+        color: '#dae1e7', // color you want to make the spinner
+        size: '1em', // size of the spinner (used for both width and height)
+        border: '2px', // border-width of the spinner (shouldn't be bigger than half the spinner's size)
+        speed: '500ms', // the speed at which the spinner should rotate
+      },
+      // md: {
+      //   color: theme('colors.red.500', 'red'),
+      //   size: '2em',
+      //   border: '2px',
+      //   speed: '500ms',
+      // },
+    }),
     screens: {
       xs: '480px',
       sm: '640px',
@@ -17,7 +31,11 @@ module.exports = {
       black: '#484848',
       white: '#fff',
 
-      white50: 'rgba(255, 255, 255, 0.35)',
+      white35: 'rgba(255, 255, 255, 0.35)',
+      white50: 'rgba(255, 255, 255, 0.5)',
+      white75: 'rgba(255, 255, 255, 0.75)',
+      black03: 'rgba(0, 0, 0, 0.03)',
+      black10: 'rgba(0, 0, 0, 0.1)',
       black30: 'rgba(0, 0, 0, 0.3)',
       black50: 'rgba(0, 0, 0, 0.5)',
       black75: 'rgba(0, 0, 0, 0.75)',
@@ -114,9 +132,9 @@ module.exports = {
         400: '#7f9cf5',
         500: '#667eea',
         600: '#5a67d8',
-        700: '#4c51bf',
+        700: '#3C3769',
         800: '#434190',
-        900: '#3c366b',
+        900: '#110C34',
       },
       purple: {
         100: '#faf5ff',
@@ -646,7 +664,7 @@ module.exports = {
     boxShadow: ['responsive', 'hover', 'focus'],
     boxSizing: ['responsive'],
     cursor: ['responsive'],
-    display: ['responsive'],
+    display: ['responsive', 'group-hover'],
     fill: ['responsive'],
     flex: ['responsive'],
     flexDirection: ['responsive'],
@@ -667,7 +685,7 @@ module.exports = {
     lineHeight: ['responsive'],
     listStylePosition: ['responsive'],
     listStyleType: ['responsive'],
-    margin: ['responsive'],
+    margin: ['responsive', 'last'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
@@ -678,7 +696,7 @@ module.exports = {
     order: ['responsive'],
     outline: ['responsive', 'focus'],
     overflow: ['responsive'],
-    padding: ['responsive'],
+    padding: ['responsive', 'last'],
     placeholderColor: ['responsive', 'focus'],
     pointerEvents: ['responsive'],
     position: ['responsive'],
@@ -688,7 +706,7 @@ module.exports = {
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    textDecoration: ['responsive', 'hover', 'focus'],
+    textDecoration: ['responsive', 'hover', 'focus', 'group-hover'],
     textTransform: ['responsive'],
     userSelect: ['responsive'],
     verticalAlign: ['responsive'],
@@ -719,6 +737,7 @@ module.exports = {
   },
   corePlugins: {},
   plugins: [
-    require('@tailwindcss/custom-forms')
+    require('@tailwindcss/custom-forms'),
+    require('tailwindcss-spinner')(),
   ],
 }

@@ -1,5 +1,9 @@
 'use strict'
 
+const Listing = use('App/Models/Listing')
+const Profile = use('App/Models/Profile')
+const User = use('App/Models/User')
+
 const mock = [
     {
         id: 1,
@@ -24,6 +28,35 @@ const mock = [
 ]
 
 class ListingController {
+    async index({ response }) {
+        return response.json({
+            status: "success",
+            data: await Listing.all()
+        })
+    }
+
+    async create({ request, response, auth }) {
+        // return await Listing.truncate()
+
+        const { id } = await auth.getUser()
+        const user = await User.find(id)
+        const profile = await user.profile().fetch()
+
+        const { image, title, description, paid, price_per_hour, services_offered } = request.all()
+
+        let listing = await Listing.create({
+            profile_id: profile.id,
+            location: profile.location,
+            languages: profile.languages,
+            image, title, description, paid, price_per_hour, services_offered
+        })
+
+        return response.json({
+            status: "success",
+            data: listing
+        })
+    }
+
     async find({ request, response, params }) {
         const listing = mock.filter(_listing => _listing.slug == params.slug)[0]
         return response.json({

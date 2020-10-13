@@ -67,21 +67,7 @@
           <p class="subtitle">These are some of our newest Developers. Start here.</p>
         </div>
         <div class="mt-6 sm:mt-12">
-          <client-only>
-            <carousel
-              :per-page-custom="[[300, 1], [768, 2], [1024, 3]]"
-              :navigation-enabled="true"
-              :navigationNextLabel="chevron"
-              pagination-color="#ecebf5"
-              pagination-active-color="#4663f6"
-              :pagination-padding="6"
-              :pagination-size="12"
-            >
-              <slide v-for="n in 8" :key="n" class="px-4 py-6">
-                <ProfileCard />
-              </slide>
-            </carousel>
-          </client-only>
+          <OfferListingContainer />
         </div>
       </div>
     </section>
@@ -219,6 +205,7 @@ const chevron = `<svg class="inline w-8 fill-current text-brand-purple" xmlns="h
 
 export default {
   components: {
+    OfferListingContainer: () => import('~/components/Listing/OfferListingContainer.vue'),
     ProfileCard: () => import("~/components/Profile/Card.vue"),
     SkillCard: () => import("~/components/Skill/Card.vue"),
     InputWithButton: () => import("~/components/UI/InputWithButton.vue"),

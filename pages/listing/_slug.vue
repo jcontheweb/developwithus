@@ -237,7 +237,6 @@ export default {
           `http://127.0.0.1:3333/listing/${slug}`
         );
         this.data = res.data;
-        console.log(this.data);
       } catch (error) {}
     }
   }

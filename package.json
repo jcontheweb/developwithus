@@ -25,6 +25,7 @@
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/tailwindcss": "^1.0.0",
-    "@tailwindcss/custom-forms": "^0.2.1"
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "tailwindcss-spinner": "^1.0.0"
   }
 }

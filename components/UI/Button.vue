@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" :class="`button button--${modifier} button--${size}`">{{ text }}</button>
+  <button @keyup.enter="$emit('click')" @click="$emit('click')" :class="`button button--${modifier} button--${size} ${loading && 'spinner'}`">{{ text }}</button>
 </template>
 
 <script>
@@ -17,6 +17,10 @@ export default {
     size: {
       type: String,
       default: "base"
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -71,6 +75,11 @@ export default {
   &--small-full {
     @apply py-3 w-full;
     font-size: 14px;
+  }
+
+  &--large-full {
+    @apply py-5 px-8 w-full;
+    font-size: 15px;
   }
 }
 </style>

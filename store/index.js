@@ -1,43 +1,18 @@
 import { create, deleteById } from "~/config/api/api"
 
-export const state = () => ({
-    user_profile: null
-});
+export const state = () => ({});
 
 export const mutations = {
-    SET_PROFILE: (state, payload) => {
-        state.user_profile = payload
-    },
-
-    PUSH_NEW_EDUCATION: (state, payload) => {
-        state.user_profile.education = [...state.user_profile.education, payload]
-    },
-
     PUSH_NEW_WORK_EXPERIENCE: (state, payload) => {
-        state.user_profile.work = [...state.user_profile.work, payload]
+        state.auth.user.work = [...state.auth.user.work, payload]
     },
 
     REMOVE_EXPERIENCE_BY_ID: (state, payload) => {
-        state.user_profile.work = state.user_profile.work.filter(work => work.id != payload)
+        state.auth.user.work = state.auth.user.work.filter(work => work.id != payload)
     },
-
-    REMOVE_EDUCATION_BY_ID: (state, payload) => {
-        state.user_profile.education = state.user_profile.education.filter(education => education.id != payload)
-    }
 }
 
 export const actions = {
-    async nuxtServerInit({ commit, context, getters }, { req }) {
-        if (getters.isAuthenticated) {
-            const { data } = await this.$axios.$get(
-                `profile/${getters.loggedInUser.id}`
-            );
-
-            commit("SET_PROFILE", data);
-        }
-
-        console.log(getters.loggedInUser)
-    },
     async WorkExperienceRemove({ commit }, payload) {
         const requestedBy = this.getters.loggedInUserProfile.id
         const validated = payload.profile_id == requestedBy
@@ -47,7 +22,6 @@ export const actions = {
                 await deleteById('work-experience', payload.id)
                 commit("REMOVE_EXPERIENCE_BY_ID", payload.id)
             } catch (error) {
-                console.log(error.response.message)
             }
         }
     },
@@ -87,6 +61,10 @@ export const getters = {
     },
 
     loggedInUserProfile(state) {
-        return state.user_profile
+        return state.auth.user.profile
+    },
+
+    hasProfile(state) {
+        return state.auth.user.profile != null
     }
 };

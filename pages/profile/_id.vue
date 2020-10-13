@@ -2,10 +2,7 @@
   <div class="container">
     <div class="pt-20 my-20 md:flex md:pt-0">
       <div class="max-w-md mx-auto text-center md:max-w-none md:text-left md:mx-0 md:mr-16">
-        <span
-          class="inline-block w-40 h-40 bg-no-repeat bg-cover rounded-full avatar"
-          :style="`background-image: url(${avatar})`"
-        ></span>
+        <ProfileAvatar class="w-40 h-40" :avatar="avatar" :is_active="isActive" />
         <div class="mt-2 md:hidden">
           <h4>{{ profile.first_name }} {{ profile.surname }}</h4>
           <p class="mt-6">
@@ -79,7 +76,8 @@ export default {
     SlimCard: () => import("~/components/Listing/SlimCard.vue"),
     WorkExperienceList: () =>
       import("~/components/Profile/WorkExperienceList.vue"),
-    EducationList: () => import("~/components/Profile/EducationList.vue")
+    EducationList: () => import("~/components/Profile/EducationList.vue"),
+    ProfileAvatar: () => import("~/components/Profile/ProfileAvatar.vue")
   },
   data: () => ({
     chevron,
@@ -95,31 +93,18 @@ export default {
   },
   computed: {
     avatar() {
-
-      
-      return `${this.profile.avatar}`;
+      return `${process.env.uploadURL}/${this.profile.avatar}`;
+    },
+    isActive() {
+      const current_time = new Date()
+      const last_active = new Date(parseFloat(this.profile.last_active))
+      return current_time - last_active < 5*60*1000
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-.avatar {
-  position: relative;
-}
-
-.avatar:after {
-  position: absolute;
-  content: "";
-  top: 10px;
-  right: 10px;
-  height: 24px;
-  width: 24px;
-  background-color: #edeaea;
-  border: 2px solid #fff;
-  border-radius: 100%;
-}
-
 .heading {
   @apply pb-3 border-b border-indigo-100 font-semibold;
   font-size: 22px;
